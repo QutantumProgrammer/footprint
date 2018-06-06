@@ -15,7 +15,6 @@
         <span class="top-short-line"></span>
       </div>
 
-
       <img src="../assets/rotate.png"/>
       Z FIELD
 
@@ -31,13 +30,13 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        msg: 'Welcome to Your Vue.js App'
-      }
+export default {
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App'
     }
   }
+}
 </script>
 
 <style scoped>
@@ -154,7 +153,6 @@
   .head img:hover{
     animation: rotate 2s infinite linear!important;
   }
-
 
   @keyframes rotate {
     from {
