@@ -23,7 +23,7 @@ body {
   font-family: consolas;
   font-size: 0;
   background-color: #000000;
-  background-image: url(./assets/bg-black.png);
+  background-image: url(assets/bg-black.png);
   background-repeat: repeat;
   background-size: 550px;
 }
