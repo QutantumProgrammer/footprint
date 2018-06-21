@@ -1,5 +1,5 @@
 <template>
-  <div class="head">
+  <div class="head" v-bind:class="{'eva': globalData.evaTheme}">
     <div class="container">
       <div class="left-line">
         <div></div>
@@ -8,15 +8,15 @@
         <div></div>
       </div>
 
-      <div>
-        <span class="top-short-line"></span>
-        <span class="top-short-line"></span>
-        <span class="top-short-line"></span>
-        <span class="top-short-line"></span>
-      </div>
+      <!--<div>-->
+      <!--<span class="top-short-line"></span>-->
+      <!--<span class="top-short-line"></span>-->
+      <!--<span class="top-short-line"></span>-->
+      <!--<span class="top-short-line"></span>-->
+      <!--</div>-->
 
-      <img src="../assets/rotate.png"/>
-      Z FIELD
+      <img src="../assets/nerv.png" v-if="!globalData.evaTheme" @click="changeCurrentTheme()"/>
+      <img src="../assets/magic8.png" v-if="globalData.evaTheme" @click="changeCurrentTheme()"/>
 
       <div>
         <span class="bottom-short-line"></span>
@@ -30,37 +30,49 @@
 </template>
 
 <script>
+import globalData from './GlobalData.js'
 export default {
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      globalData
+    }
+  },
+  methods: {
+    changeCurrentTheme: function () {
+      this.globalData.evaTheme = !this.globalData.evaTheme
     }
   }
 }
 </script>
 
 <style scoped>
-  .head{
+  .head {
     box-sizing: border-box;
     position: fixed;
-    top:0;
+    top: 0;
+    z-index: 9999;
     padding: 4px;
     width: 100%;
-    background: #260000;
-    opacity: .9;
+    background: #ff6535;
+  }
 
+  .eva {
+    background: #260000;
   }
 
   .container {
     position: relative;
-    background: #300000;
     color: #ffad00;
     font-size: 24px;
     height: 100px;
     line-height: 100px;
   }
 
-  .top-short-line {
+  .eva .container {
+    background: #300000;
+  }
+
+  .eva .top-short-line {
     position: absolute;
     top: 5px;
     height: 8px;
@@ -68,90 +80,109 @@ export default {
     background: #ff7800;
   }
 
-  .bottom-short-line {
+  .eva .bottom-short-line {
     position: absolute;
     bottom: 5px;
     height: 8px;
     width: 2px;
     background: #ff7800;
   }
+
   .left-line {
+    display: none;
+  }
+
+  .eva .left-line {
+    display: block;
     position: absolute;
     top: 5px;
     bottom: 5px;
     left: 10px;
   }
 
-  .left-line>div:nth-child(1) {
+  .left-line > div:nth-child(1) {
     width: 2px;
     height: 8px;
     margin-bottom: 5px;
     background: #ff7800;
   }
 
-  .left-line>div:nth-child(2) {
+  .left-line > div:nth-child(2) {
     width: 2px;
     height: 20px;
     background: #ff7800;
   }
 
-  .left-line>div:nth-child(3) {
+  .left-line > div:nth-child(3) {
     width: 8px;
     height: 2px;
     background: #ff7800;
     transform: translateY(-12px);
   }
 
-  .left-line>div:nth-child(4) {
+  .left-line > div:nth-child(4) {
     width: 2px;
     height: 50px;
     margin-top: 5px;
     background: #84d904;
   }
 
-  .top-short-line:nth-child(1){
+  .top-short-line:nth-child(1) {
     left: 20%;
   }
 
-  .top-short-line:nth-child(2){
+  .top-short-line:nth-child(2) {
     left: 40%;
   }
 
-  .top-short-line:nth-child(3){
+  .top-short-line:nth-child(3) {
     left: 60%;
   }
 
-  .top-short-line:nth-child(4){
+  .top-short-line:nth-child(4) {
     left: 80%;
   }
 
-  .bottom-short-line:nth-child(1){
+  .bottom-short-line:nth-child(1) {
     left: 20%;
   }
 
-  .bottom-short-line:nth-child(2){
+  .bottom-short-line:nth-child(2) {
     left: 40%;
   }
 
-  .bottom-short-line:nth-child(3){
+  .bottom-short-line:nth-child(3) {
     left: 60%;
   }
 
-  .bottom-short-line:nth-child(4){
+  .bottom-short-line:nth-child(4) {
     left: 80%;
   }
 
-  .head img{
+  .head img {
     display: inline-block;
     margin-left: 50px;
-    height: 50px;
-    width: 50px;
+    width: 60px;
     vertical-align: middle;
-    animation: rotate 8s infinite linear;
+    cursor: pointer;
   }
 
-  .head img:hover{
-    animation: rotate 2s infinite linear!important;
+  .eva .head img {
+    animation: opacity 2s infinite linear;
+  }
+
+  /*.head img:hover{*/
+  /*animation: rotate 2s infinite linear!important;*/
+  /*}*/
+
+  @keyframes opacity {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
   }
 
   @keyframes rotate {
