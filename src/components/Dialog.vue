@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     show: function (url) {
-        this.url = url
+      this.url = url
       this.display = true
     },
     hide: function () {

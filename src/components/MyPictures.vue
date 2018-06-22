@@ -29,29 +29,29 @@ export default {
         {
           title: '日本之行',
           imgs: [
-            '/static/JP/jp_1.JPG',
-            '/static/JP/jp_2.JPG',
-            '/static/JP/jp_3.JPG',
-            '/static/JP/jp_4.JPG',
-            '/static/JP/jp_5.JPG',
-            '/static/JP/jp_6.JPG',
-            '/static/JP/jp_7.JPG',
-            '/static/JP/jp_8.JPG',
-            '/static/JP/jp_9.JPG'
+            '../static/JP/jp_1.JPG',
+            '../static/JP/jp_2.JPG',
+            '../static/JP/jp_3.JPG',
+            '../static/JP/jp_4.JPG',
+            '../static/JP/jp_5.JPG',
+            '../static/JP/jp_6.JPG',
+            '../static/JP/jp_7.JPG',
+            '../static/JP/jp_8.JPG',
+            '../static/JP/jp_9.JPG'
           ]
         },
         {
           title: '香港之行',
           imgs: [
-            '/static/HK/hk_1.JPG',
-            '/static/HK/hk_2.JPG',
-            '/static/HK/hk_3.JPG',
-            '/static/HK/hk_4.JPG',
-            '/static/HK/hk_5.JPG',
-            '/static/HK/hk_6.JPG',
-            '/static/HK/hk_7.JPG',
-            '/static/HK/hk_8.JPG',
-            '/static/HK/hk_9.JPG'
+            '../static/HK/hk_1.JPG',
+            '../static/HK/hk_2.JPG',
+            '../static/HK/hk_3.JPG',
+            '../static/HK/hk_4.JPG',
+            '../static/HK/hk_5.JPG',
+            '../static/HK/hk_6.JPG',
+            '../static/HK/hk_7.JPG',
+            '../static/HK/hk_8.JPG',
+            '../static/HK/hk_9.JPG'
           ]
         }
       ]
