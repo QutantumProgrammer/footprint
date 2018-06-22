@@ -27,7 +27,7 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       records: [
         {
-          title: 'HK',
+          title: 'JP',
           imgs: [
             'static/JP/jp_1.JPG',
             'static/JP/jp_2.JPG',
@@ -41,7 +41,7 @@ export default {
           ]
         },
         {
-          title: 'JAPAN',
+          title: 'HK',
           imgs: [
             'static/HK/hk_1.JPG',
             'static/HK/hk_2.JPG',
