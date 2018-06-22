@@ -4,7 +4,7 @@
       <div class="title">
         {{item.title}}
       </div>
-      <div v-for="(url, subIndex) in item.imgs" v-bind:key="subIndex" class="img-container" @click="zoom(url)">
+      <div v-for="(url, subIndex) in item.imgs" v-bind:key="subIndex" class="img-container" @click="zoom(subIndex, item.imgs)">
         <img v-bind:src="url"/>
       </div>
     </div>
@@ -27,7 +27,7 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       records: [
         {
-          title: '日本之行',
+          title: 'HK',
           imgs: [
             'static/JP/jp_1.JPG',
             'static/JP/jp_2.JPG',
@@ -41,7 +41,7 @@ export default {
           ]
         },
         {
-          title: '香港之行',
+          title: 'JAPAN',
           imgs: [
             'static/HK/hk_1.JPG',
             'static/HK/hk_2.JPG',
@@ -58,8 +58,8 @@ export default {
     }
   },
   methods: {
-    zoom: function (url) {
-      this.$refs.zoomImg.show(url)
+    zoom: function (index, imgs) {
+      this.$refs.zoomImg.show(index, imgs)
     }
   }
 }

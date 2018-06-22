@@ -2,8 +2,11 @@
   <div v-if="display" >
     <div class="cover" @click="hide()">
     </div>
-    <div class="img-container" @click="hide()">
+    <div class="img-container">
+      <div class="close" @click="hide()"></div>
       <img v-bind:src="url">
+      <div class="left" @click="prev()" v-bind:class="{'stop': index === 0}"></div>
+      <div class="right" @click="next()" v-bind:class="{'stop': index === imgs.length -1}"></div>
     </div>
   </div>
 </template>
@@ -13,16 +16,39 @@ export default {
   name: 'vDialog',
   data () {
     return {
-      display: false
+      display: false,
+      index: 0,
+      imgs: [],
+      url: ''
     }
   },
   methods: {
-    show: function (url) {
-      this.url = url
+    show: function (index, imgs) {
+      this.index = index
+      this.imgs = imgs
+      this.url = imgs[index]
       this.display = true
     },
     hide: function () {
+      console.log(this)
       this.display = false
+    },
+    prev: function () {
+      console.log(this)
+      if (this.index === 0) {
+        return
+      }
+      this.index--
+      this.url = this.imgs[this.index]
+      console.log(this.url)
+    },
+    next: function () {
+      console.log(this)
+      if (this.index >= this.imgs.length - 1) {
+        return
+      }
+      this.index++
+      this.url = this.imgs[this.index]
     }
   }
 }
@@ -42,22 +68,56 @@ export default {
 
 .img-container{
   position: fixed;
-  top:0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: none;
-  z-index: 10001;
+  z-index: 10004;
+  top:50%;
+  left: 50%;
+  width: 70%;
+  height: 80%;
+  padding: 20px 0;
   text-align: center;
+  background: #000000;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+}
+
+.img-container .close{
+  position: absolute;
+  z-index: 10001;
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  background-image: url(../assets/close.png);
+  cursor: pointer;
 }
 
 .img-container img {
-  position: fixed;
-  top:50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width:  60%;
-  max-height: 90%;
+  max-width: 100%;
+  max-height: 100%;
+  user-select: none;
+}
+
+.img-container .left{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  cursor: url(../assets/left.png), auto;
+  /*background: greenyellow;*/
+}
+
+.img-container .right{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  cursor: url(../assets/right.png), auto;
+  /*background: blueviolet;*/
+}
+.stop {
+  cursor: url(../assets/stop.png), auto!important;
 }
 
 </style>
