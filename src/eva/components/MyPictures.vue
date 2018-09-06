@@ -9,17 +9,17 @@
       </div>
     </div>
 
-    <v-dialog ref="zoomImg"></v-dialog>
+    <img-dialog ref="zoomImg"></img-dialog>
   </div>
 </template>
 
 <script>
 import globalData from './GlobalData'
-import vDialog from './Dialog.vue'
+import imgDialog from './ImgDialog.vue'
 export default {
   name: 'MyPictures',
   components: {
-    vDialog
+    imgDialog
   },
   data () {
     return {

@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'vDialog',
+  name: 'imgDialog',
   data () {
     return {
       display: false,

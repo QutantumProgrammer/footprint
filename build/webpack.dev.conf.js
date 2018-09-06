@@ -53,10 +53,19 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: 'index.html',
+      filename: 'eva/index.html',
       template: 'index.html',
+      excludeChunks: ['tourApp'],
       inject: true
     }),
+
+    // new HtmlWebpackPlugin({
+    //   filename: 'tour/index.html',
+    //   template: 'index.html',
+    //   excludeChunks: ['evaApp'],
+    //   inject: true
+    // }),
+
     // copy custom static assets
     new CopyWebpackPlugin([
       {
