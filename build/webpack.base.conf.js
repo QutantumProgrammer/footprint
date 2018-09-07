@@ -22,7 +22,8 @@ const createLintingRule = () => ({
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    evaApp: './src/eva/main.js'
+    evaApp: './src/eva/main.js',
+    tourApp: './src/tour/main.js'
   },
   output: {
     path: config.build.assetsRoot,

@@ -29,29 +29,29 @@ export default {
         {
           title: 'JP',
           imgs: [
-            'static/JP/jp_1.JPG',
-            'static/JP/jp_2.JPG',
-            'static/JP/jp_3.JPG',
-            'static/JP/jp_4.JPG',
-            'static/JP/jp_5.JPG',
-            'static/JP/jp_6.JPG',
-            'static/JP/jp_7.JPG',
-            'static/JP/jp_8.JPG',
-            'static/JP/jp_9.JPG'
+            'static/jp/jp_1.JPG',
+            'static/jp/jp_2.JPG',
+            'static/jp/jp_3.JPG',
+            'static/jp/jp_4.JPG',
+            'static/jp/jp_5.JPG',
+            'static/jp/jp_6.JPG',
+            'static/jp/jp_7.JPG',
+            'static/jp/jp_8.JPG',
+            'static/jp/jp_9.JPG'
           ]
         },
         {
           title: 'HK',
           imgs: [
-            'static/HK/hk_1.JPG',
-            'static/HK/hk_2.JPG',
-            'static/HK/hk_3.JPG',
-            'static/HK/hk_4.JPG',
-            'static/HK/hk_5.JPG',
-            'static/HK/hk_6.JPG',
-            'static/HK/hk_7.JPG',
-            'static/HK/hk_8.JPG',
-            'static/HK/hk_9.JPG'
+            'static/hk/hk_1.JPG',
+            'static/hk/hk_2.JPG',
+            'static/hk/hk_3.JPG',
+            'static/hk/hk_4.JPG',
+            'static/hk/hk_5.JPG',
+            'static/hk/hk_6.JPG',
+            'static/hk/hk_7.JPG',
+            'static/hk/hk_8.JPG',
+            'static/hk/hk_9.JPG'
           ]
         }
       ]

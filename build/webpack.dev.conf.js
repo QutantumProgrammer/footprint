@@ -59,12 +59,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       inject: true
     }),
 
-    // new HtmlWebpackPlugin({
-    //   filename: 'tour/index.html',
-    //   template: 'index.html',
-    //   excludeChunks: ['evaApp'],
-    //   inject: true
-    // }),
+    new HtmlWebpackPlugin({
+      filename: 'tour/index.html',
+      template: 'index.html',
+      excludeChunks: ['evaApp'],
+      inject: true
+    }),
 
     // copy custom static assets
     new CopyWebpackPlugin([
