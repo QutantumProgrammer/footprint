@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-bind:class="{'scroll-lock': globalData.scrollLocked}">
     <Header></Header>
     <div class="content">
       <router-view/>
@@ -24,11 +24,25 @@ export default {
 </script>
 
 <style>
-body {
-  margin: 0;
-  font-family: consolas;
-  font-size: 0;
-  background: #0a0a0a;
-  color: #ffffff;
-}
+  body {
+    margin: 0;
+    font-family: consolas;
+    font-size: 0;
+    background: #0a0a0a;
+    color: #ffffff;
+  }
+
+  #app {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+  }
+
+  .scroll-lock {
+    overflow: hidden!important;
+  }
 </style>

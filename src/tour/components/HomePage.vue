@@ -10,55 +10,55 @@
 </template>
 
 <script>
-  import globalData from './global-data'
-  export default {
-    name: 'HomePage',
-    components: {},
-    data () {
-      return {
-        footprints: [
-          {
-            title: 'HK',
-            previewImg: 'static/preview/hk.jpg',
-            id: 'hk'
-          },
-          {
-            title: 'にほんこ',
-            previewImg: 'static/preview/jp.jpg',
-            id: 'jp'
-          },
-          {
-            title: '渝',
-            previewImg: 'static/preview/cq.jpg',
-            id: 'cq'
-          }
-//          ,
-//          {
-//            title: '沪',
-//            previewImg: 'static/preview/hk_1.jpg'
-//          },
-//          {
-//            title: '杭',
-//            previewImg: 'static/preview/hk_1.jpg'
-//          },
-//          {
-//            title: '魔都',
-//            previewImg: 'static/preview/hk_1.jpg'
-//          },
-//          {
-//            title: '鹏城',
-//            previewImg: 'static/preview/hk_1.jpg'
-//          }
-        ],
-        globalData
-      }
-    },
-    methods: {
-      goDetail: function (id) {
-        this.$router.push({name: 'Pictures', params: {id}})
-      }
+import globalData from './global-data'
+export default {
+  name: 'HomePage',
+  components: {},
+  data () {
+    return {
+      footprints: [
+        {
+          title: 'HK',
+          previewImg: 'static/preview/hk.jpg',
+          id: 'hk'
+        },
+        {
+          title: 'にほんこ',
+          previewImg: 'static/preview/jp.jpg',
+          id: 'jp'
+        },
+        {
+          title: '渝',
+          previewImg: 'static/preview/cq.jpg',
+          id: 'cq'
+        }
+//        ,
+//        {
+//          title: '沪',
+//          previewImg: 'static/preview/hk_1.jpg'
+//        },
+//        {
+//          title: '杭',
+//          previewImg: 'static/preview/hk_1.jpg'
+//        },
+//        {
+//          title: '魔都',
+//          previewImg: 'static/preview/hk_1.jpg'
+//        },
+//        {
+//          title: '鹏城',
+//          previewImg: 'static/preview/hk_1.jpg'
+//        }
+      ],
+      globalData
+    }
+  },
+  methods: {
+    goDetail: function (id) {
+      this.$router.push({name: 'Pictures', params: {id}})
     }
   }
+}
 </script>
 
 <style scoped>

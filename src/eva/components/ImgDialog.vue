@@ -104,7 +104,6 @@ export default {
   width: 50%;
   height: 100%;
   cursor: url(../assets/left.png), auto;
-  /*background: greenyellow;*/
 }
 
 .img-container .right{
@@ -114,7 +113,6 @@ export default {
   width: 50%;
   height: 100%;
   cursor: url(../assets/right.png), auto;
-  /*background: blueviolet;*/
 }
 .stop {
   cursor: url(../assets/stop.png), auto!important;

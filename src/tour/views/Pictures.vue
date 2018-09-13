@@ -8,30 +8,30 @@
 </template>
 
 <script>
-  import imgDialog from '../components/ImgDialog.vue'
-  import globalData from '../components/global-data'
-  import imgUrl from '../components/url-config/img-url'
+import imgDialog from '../components/ImgDialog.vue'
+import globalData from '../components/global-data'
+import imgUrl from '../components/url-config/img-url'
 
-  export default {
-    name: 'Pictures',
-    components: {
-      imgDialog
-    },
-    data () {
-      return {
-        globalData,
-        imgs: []
-      }
-    },
-    methods: {
-      zoom: function (url) {
-        this.$refs.zoomImg.show(url)
-      }
-    },
-    mounted: function () {
-      this.imgs = imgUrl[this.$route.params.id]
+export default {
+  name: 'Pictures',
+  components: {
+    imgDialog
+  },
+  data () {
+    return {
+      globalData,
+      imgs: []
     }
+  },
+  methods: {
+    zoom: function (url) {
+      this.$refs.zoomImg.show(url)
+    }
+  },
+  mounted: function () {
+    this.imgs = imgUrl[this.$route.params.id]
   }
+}
 </script>
 
 <style scoped>

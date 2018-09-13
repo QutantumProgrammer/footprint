@@ -92,7 +92,6 @@ export default {
   text-align: center;
   color: #000000;
   background: #ff6535;
-  /*border-radius: 5px;*/
 }
 
 .eva .panel .title{
