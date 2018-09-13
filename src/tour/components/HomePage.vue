@@ -19,17 +19,17 @@ export default {
       footprints: [
         {
           title: 'HK',
-          previewImg: 'static/preview/hk.jpg',
+          previewImg: '/static/preview/hk.jpg',
           id: 'hk'
         },
         {
           title: 'にほんこ',
-          previewImg: 'static/preview/jp.jpg',
+          previewImg: '/static/preview/jp.jpg',
           id: 'jp'
         },
         {
           title: '渝',
-          previewImg: 'static/preview/cq.jpg',
+          previewImg: '/static/preview/cq.jpg',
           id: 'cq'
         }
       ],
