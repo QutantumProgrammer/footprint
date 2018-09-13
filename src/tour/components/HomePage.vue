@@ -1,10 +1,13 @@
 <template>
   <div class="container">
-    <div class="collection" v-for="(item, index) in footprints" v-bind:key="index" v-on:click="goDetail(item.id)">
+    <div class="collection" v-for="(item, index) in footprints" v-bind:key="index"
+         @click="goDetail(item.id)"
+         @touchstart="focus()"
+         @touchend="leave()">
       <img v-bind:src="item.previewImg">
-      <div class="cover-top"></div>
-      <div class="cover-bottom"></div>
-      <div class="title">{{item.title}}</div>
+      <div class="cover-top" v-bind:class="{'active': hover}"></div>
+      <div class="cover-bottom" v-bind:class="{'active': hover}"></div>
+      <div class="title" v-bind:class="{'active': hover}">{{item.title}}</div>
     </div>
   </div>
 </template>
@@ -16,6 +19,7 @@ export default {
   components: {},
   data () {
     return {
+      hover: false,
       footprints: [
         {
           title: 'HK',
@@ -39,6 +43,12 @@ export default {
   methods: {
     goDetail: function (id) {
       this.$router.push({name: 'Pictures', params: {id}})
+    },
+    focus: function () {
+      this.hover = true
+    },
+    leave: function () {
+      this.hover = false
     }
   }
 }
@@ -108,6 +118,18 @@ export default {
     opacity: .7;
     transform: rotate(26.56deg);
     transition: all .5s;
+  }
+
+  .container .collection .cover-bottom.hover {
+    top: 52% !important;
+  }
+
+  .container .collection .cover-bottom.hover {
+    top: -42% !important;
+  }
+
+  .container .collection .title.hover {
+    opacity: 1 !important;
   }
 
   .container .collection:hover .title {

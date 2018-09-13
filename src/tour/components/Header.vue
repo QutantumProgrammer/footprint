@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="head-icon">
+    <div class="head-icon" v-on:click="goHome()">
       <img src="../assets/head-icon.jpg">
       <span>Footprint</span>
     </div>
@@ -12,17 +12,29 @@ export default {
   data () {
     return {}
   },
-  methods: {}
+  methods: {
+    goHome: function (id) {
+      this.$router.push({name: 'HomePage'})
+    }
+  }
 }
 </script>
 
 <style scoped>
+
+  @media (max-width: 800px) {
+    .header .head-icon {
+      margin: 40px auto 0 auto!important;
+    }
+  }
+
   .header {
     height: 200px;
     overflow: hidden;
   }
 
   .header .head-icon {
+    cursor: pointer;
     position: relative;
     margin: 40px 0 0 150px;
     width: 100px;
