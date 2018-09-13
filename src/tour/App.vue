@@ -30,6 +30,7 @@ export default {
     font-size: 0;
     background: #0a0a0a;
     color: #ffffff;
+    user-select: none;
   }
 
   #app {
