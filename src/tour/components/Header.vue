@@ -29,6 +29,7 @@ export default {
   }
 
   .header {
+    user-select: none;
     height: 200px;
     overflow: hidden;
   }
