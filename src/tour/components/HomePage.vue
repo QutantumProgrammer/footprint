@@ -32,23 +32,6 @@ export default {
           previewImg: 'static/preview/cq.jpg',
           id: 'cq'
         }
-//        ,
-//        {
-//          title: '沪',
-//          previewImg: 'static/preview/hk_1.jpg'
-//        },
-//        {
-//          title: '杭',
-//          previewImg: 'static/preview/hk_1.jpg'
-//        },
-//        {
-//          title: '魔都',
-//          previewImg: 'static/preview/hk_1.jpg'
-//        },
-//        {
-//          title: '鹏城',
-//          previewImg: 'static/preview/hk_1.jpg'
-//        }
       ],
       globalData
     }
