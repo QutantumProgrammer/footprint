@@ -92,6 +92,7 @@ export default {
     opacity: 0;
     transform: translate(-50%, -50%);
     transition: all .5s;
+    user-select: none;
   }
 
   .container .collection .cover-top {
