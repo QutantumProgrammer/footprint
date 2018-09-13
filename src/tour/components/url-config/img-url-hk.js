@@ -25,6 +25,15 @@ const IMG_URL_MAP = [
   },
   {
     url: '../static/hk/hk_9.JPG'
+  },
+  {
+    url: '../static/hk/hk_10.JPG'
+  },
+  {
+    url: '../static/hk/hk_11.JPG'
+  },
+  {
+    url: '../static/hk/hk_12.JPG'
   }
 ]
 

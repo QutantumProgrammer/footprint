@@ -13,6 +13,9 @@ const IMG_URL_MAP = [
   },
   {
     url: '../static/cq/cq_5.JPG'
+  },
+  {
+    url: '../static/cq/cq_6.JPG'
   }
 ]
 
