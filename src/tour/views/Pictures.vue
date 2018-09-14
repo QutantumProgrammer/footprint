@@ -41,6 +41,17 @@ export default {
     }
   }
 
+  @media (max-width: 800px) {
+    .container {
+      width: calc(100% - 20px)!important;
+      column-gap: 8px!important;
+    }
+
+    .container .collection {
+      margin-bottom: 8px!important;
+    }
+  }
+
   .container {
     width: 90%;
     margin: 0 auto;

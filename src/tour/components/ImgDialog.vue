@@ -2,7 +2,12 @@
   <div class="scope-root" >
     <div class="cover" @click="hide()" v-if="display">
     </div>
-    <div class="img-container" @click="hide()" v-bind:class="{'show': display}">
+    <div class="loading" v-if="display">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="img-container" @click="hide()" v-bind:class="{'show': display && !loading}">
       <img v-bind:src="url">
     </div>
   </div>
@@ -16,17 +21,25 @@ export default {
     return {
       globalData,
       display: false,
+      loading: true,
       url: ''
     }
   },
   methods: {
     show: function (url) {
-      this.url = url
+      let img = new Image()
+      img.src = url
+      img.onload = () => {
+        this.url = url
+        this.loading = false
+      }
+
       this.display = true
       this.globalData.scrollLocked = true
     },
     hide: function () {
       this.url = null
+      this.loading = true
       this.display = false
       this.globalData.scrollLocked = false
     }
@@ -37,6 +50,50 @@ export default {
 <style scoped>
   .scope-root {
     cursor: url(../assets/zoom-out.png), auto;
+  }
+
+  .loading {
+    display: inline-block;
+    position: fixed;
+    width: 35px;
+    height: 60px;
+    z-index: 10001;
+    background: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .loading span{
+    background-color: #ffffff;
+    width: 7px;
+    position: absolute;
+    top:20px;
+    bottom: 20px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .loading span:nth-child(1){
+    animation: busy-animation .9s infinite alternate;
+    left: 0;
+  }
+
+  .loading span:nth-child(2){
+    animation: busy-animation .9s .3s infinite alternate;
+    left: 14px;
+  }
+
+  .loading span:nth-child(3){
+    animation: busy-animation .9s .6s infinite alternate;
+    left: 28px;
+  }
+
+  @keyframes busy-animation
+  {
+    0%   {top: 0; bottom: 0;}
+    55%  {top: 20px; bottom: 20px;}
+    100% {top: 20px; bottom: 20px;}
   }
 
   .show {
