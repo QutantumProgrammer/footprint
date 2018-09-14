@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <div class="collection" v-for="(item, index) in imgs" v-bind:key="index" v-on:click="zoom(item.url)">
+    <div class="collection" v-for="(item, index) in imgs" v-bind:key="index" v-on:click="zoom(item.url, index)">
       <img v-bind:src="item.previewUrl">
     </div>
-    <img-dialog ref="zoomImg"></img-dialog>
+    <img-dialog ref="zoomImg" :imgs="imgs"></img-dialog>
   </div>
 </template>
 
@@ -24,8 +24,8 @@ export default {
     }
   },
   methods: {
-    zoom: function (url) {
-      this.$refs.zoomImg.show(url)
+    zoom: function (url, index) {
+      this.$refs.zoomImg.show(url, index)
     }
   },
   mounted: function () {

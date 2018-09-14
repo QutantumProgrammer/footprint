@@ -1,5 +1,8 @@
 <template>
-  <div class="scope-root" >
+  <div class="scope-root"
+       @touchstart="moveStart"
+       @touchmove="moving"
+       @touchend="moveEnd">
     <div class="cover" @click="hide()" v-if="display">
     </div>
     <div class="loading" v-if="display">
@@ -8,7 +11,10 @@
       <span></span>
     </div>
     <div class="img-container" @click="hide()" v-bind:class="{'show': display && !loading}">
-      <img v-bind:src="url">
+        <img v-bind:src="url"
+             v-bind:style="{ left: 'calc(' + offsetPercentX + '% + ' + offsetX + 'px)'}"
+             v-bind:class="{'img-move-transition': switchingImg}"
+             v-on:transitionend="afterLeave">
     </div>
   </div>
 </template>
@@ -22,16 +28,24 @@ export default {
       globalData,
       display: false,
       loading: true,
+      switchingImg: false,
+      touchStartX: 0,
+      offsetX: 0,
+      offsetPercentX: 50,
+      imgIndex: 0,
       url: ''
     }
   },
+  props: ['imgs'],
   methods: {
-    show: function (url) {
+    show: function (url, imgIndex) {
+      this.offsetPercentX = 50
       let img = new Image()
       img.src = url
       img.onload = () => {
         this.url = url
         this.loading = false
+        this.imgIndex = imgIndex
       }
 
       this.display = true
@@ -42,6 +56,46 @@ export default {
       this.loading = true
       this.display = false
       this.globalData.scrollLocked = false
+    },
+    moveStart: function (event) {
+      if (this.switchingImg) return
+      if (event.changedTouches.length != 1) return
+      let touch = event.changedTouches[0]
+      this.touchStartX = touch.clientX
+      this.offsetPercentX = 50
+    },
+    moving: function (event) {
+      if (this.switchingImg) return
+      if (event.changedTouches.length != 1) return
+      let touch = event.changedTouches[0]
+      let currentX = touch.clientX
+      this.offsetX = currentX - this.touchStartX
+    },
+    moveEnd: function (event) {
+      if (this.switchingImg) return
+      this.offsetX = 0
+      if (event.changedTouches.length != 1) return
+
+      let touch = event.changedTouches[0]
+      let currentX = touch.clientX
+      let diffX = currentX - this.touchStartX
+      if (Math.abs(diffX) < 45) {
+        return
+      }
+
+      if (diffX > 0 && this.imgIndex <= 0 ) return
+
+      if (diffX < 0 && this.imgIndex >= this.imgs.length ) return
+
+      this.offsetPercentX = diffX < 0 ? -100: 100
+      diffX < 0 ? this.imgIndex++ : this.imgIndex--
+      this.switchingImg = true
+    },
+    afterLeave: function () {
+      this.switchingImg = false
+      this.url = null
+      this.loading = true
+      this.show(this.imgs[this.imgIndex].url, this.imgIndex)
     }
   }
 }
@@ -50,6 +104,11 @@ export default {
 <style scoped>
   .scope-root {
     cursor: url(../assets/zoom-out.png), auto;
+  }
+
+  .img-move-transition {
+    transition: all .3s!important;
+    transform: translate(0, -50%)!important;
   }
 
   .loading {
