@@ -132,7 +132,7 @@ export default {
   }
 
   .img-move-transition {
-    transition: all .7s!important;
+    transition: all .4s!important;
     transform: translate(0, -50%)!important;
   }
 
