@@ -14,7 +14,8 @@
              v-bind:src="url"
              v-bind:style="{ left: 'calc(' + offsetPercentX + '% + ' + offsetX + 'px)'}"
              v-bind:class="{'img-move-transition': switchingImg}"
-             v-on:transitionend="afterLeave">
+             v-on:transitionend="afterLeave"
+             @click="dbClickCheck">
     </div>
   </div>
 </template>
@@ -33,6 +34,9 @@ export default {
       offsetX: 0,
       offsetPercentX: 50,
       imgIndex: 0,
+      lastClick: 0,
+      timeId: null,
+      oneFinger: true,
       url: ''
     }
   },
@@ -60,13 +64,17 @@ export default {
     moveStart: function (event) {
       if (this.switchingImg) return
       if (event.changedTouches.length != 1) return
+      this.oneFinger = true
       let touch = event.changedTouches[0]
       this.touchStartX = touch.clientX
       this.offsetPercentX = 50
     },
     moving: function (event) {
       if (this.switchingImg) return
-      if (event.changedTouches.length != 1) return
+      if (event.changedTouches.length > 1) {
+        this.oneFinger = false
+        return
+      }
       let touch = event.changedTouches[0]
       let currentX = touch.clientX
       this.offsetX = currentX - this.touchStartX
@@ -74,6 +82,7 @@ export default {
     moveEnd: function (event) {
       if (this.switchingImg) return
       this.offsetX = 0
+      if (!this.oneFinger) return
       if (event.changedTouches.length != 1) return
 
       let touch = event.changedTouches[0]
@@ -85,17 +94,33 @@ export default {
 
       if (diffX > 0 && this.imgIndex <= 0 ) return
 
-      if (diffX < 0 && this.imgIndex >= this.imgs.length ) return
+      if (diffX < 0 && this.imgIndex >= this.imgs.length - 1 ) return
 
       this.offsetPercentX = diffX < 0 ? -100: 100
       diffX < 0 ? this.imgIndex++ : this.imgIndex--
       this.switchingImg = true
     },
     afterLeave: function () {
+      console.log("leaving")
+      if (!this.switchingImg) return
       this.switchingImg = false
       this.url = null
       this.loading = true
       this.show(this.imgs[this.imgIndex].url, this.imgIndex)
+    },
+    dbClickCheck: function (event) {
+      event.stopPropagation()
+      if (this.timeId) {
+        clearTimeout(this.timeId)
+        this.timeId = null
+        return
+      }
+
+      this.timeId = setTimeout(() => {
+        clearTimeout(this.timeId)
+        this.timeId = null
+        this.hide()
+      }, 300)
     }
   }
 }
@@ -107,7 +132,7 @@ export default {
   }
 
   .img-move-transition {
-    transition: all .3s!important;
+    transition: all .7s!important;
     transform: translate(0, -50%)!important;
   }
 
