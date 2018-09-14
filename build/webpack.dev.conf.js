@@ -55,14 +55,14 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'eva/index.html',
       template: 'index.html',
-      excludeChunks: ['tourApp'],
+      chunks: ['evaApp'],
       inject: true
     }),
 
     new HtmlWebpackPlugin({
       filename: 'tour/index.html',
       template: 'index.html',
-      excludeChunks: ['evaApp'],
+      chunks: ['tourApp'],
       inject: true
     }),
 

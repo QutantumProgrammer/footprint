@@ -10,7 +10,7 @@
 <script>
 import imgDialog from '../components/ImgDialog.vue'
 import globalData from '../components/global-data'
-import imgUrl from '../components/url-config/img-url'
+import imgUrl from '../components/img-url'
 
 export default {
   name: 'Pictures',
