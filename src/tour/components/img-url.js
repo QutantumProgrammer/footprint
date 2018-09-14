@@ -8,7 +8,8 @@ files.keys().forEach(function (val) {
   let imgUrl = val.substring(lastSplitMarkIndex)
   if (!imgUrlMap[parentAttr]) imgUrlMap[parentAttr] = []
   imgUrlMap[parentAttr].push({
-    url: '../static/origin-img/' + parentAttr + imgUrl
+    url: '../static/origin-img/' + parentAttr + imgUrl,
+    previewUrl: '../static/low-quality-img/' + parentAttr + imgUrl
   })
 })
 

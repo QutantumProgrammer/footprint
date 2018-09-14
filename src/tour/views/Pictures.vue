@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="collection" v-for="(item, index) in imgs" v-bind:key="index" v-on:click="zoom(item.url)">
-      <img v-bind:src="item.url">
+      <img v-bind:src="item.previewUrl">
     </div>
     <img-dialog ref="zoomImg"></img-dialog>
   </div>

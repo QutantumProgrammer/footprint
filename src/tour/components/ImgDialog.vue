@@ -26,6 +26,7 @@ export default {
       this.globalData.scrollLocked = true
     },
     hide: function () {
+      this.url = null
       this.display = false
       this.globalData.scrollLocked = false
     }
