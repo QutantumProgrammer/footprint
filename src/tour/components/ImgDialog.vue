@@ -1,8 +1,5 @@
 <template>
-  <div class="scope-root"
-       @touchstart="moveStart"
-       @touchmove="moving"
-       @touchend="moveEnd">
+  <div class="scope-root">
     <div class="cover" @click="hide()" v-if="display">
     </div>
     <div class="loading" v-if="display">
@@ -11,7 +8,10 @@
       <span></span>
     </div>
     <div class="img-container" @click="hide()" v-bind:class="{'show': display && !loading}">
-        <img v-bind:src="url"
+        <img @touchstart="moveStart"
+             @touchmove="moving"
+             @touchend="moveEnd"
+             v-bind:src="url"
              v-bind:style="{ left: 'calc(' + offsetPercentX + '% + ' + offsetX + 'px)'}"
              v-bind:class="{'img-move-transition': switchingImg}"
              v-on:transitionend="afterLeave">
