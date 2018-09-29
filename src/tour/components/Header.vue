@@ -48,7 +48,7 @@ export default {
     right: 0;
     content: ' ';
     border-top: solid 40px transparent;
-    border-right: solid 40px #0a0a0a;
+    border-right: solid 40px rgb(19, 19, 19);
   }
 
   .header .head-icon img {

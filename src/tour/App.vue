@@ -28,7 +28,7 @@ export default {
     margin: 0;
     font-family: consolas;
     font-size: 0;
-    background: #0a0a0a;
+    background: rgb(19, 19, 19);
     color: #ffffff;
     user-select: none;
   }

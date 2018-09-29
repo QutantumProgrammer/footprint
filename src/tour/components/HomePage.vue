@@ -35,6 +35,11 @@ export default {
           title: '渝',
           previewImg: '../static/preview/cq.jpg',
           id: 'cq'
+        },
+        {
+          title: '其他',
+          previewImg: '../static/preview/other.jpg',
+          id: 'other'
         }
       ],
       globalData
