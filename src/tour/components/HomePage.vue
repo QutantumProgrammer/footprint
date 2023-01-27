@@ -22,6 +22,11 @@ export default {
       hover: false,
       footprints: [
         {
+          title: '很重要',
+          previewImg: '../static/preview/date.jpg',
+          id: 'date'
+        },
+        {
           title: 'HK',
           previewImg: '../static/preview/hk.jpg',
           id: 'hk'

@@ -30,6 +30,7 @@ export default {
   },
   mounted: function () {
     this.imgs = imgUrl[this.$route.params.id]
+    console.log(this.$route.params.id)
   }
 }
 </script>
