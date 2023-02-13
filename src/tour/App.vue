@@ -1,6 +1,6 @@
 <template>
   <div id="app" v-bind:class="{'scroll-lock': globalData.scrollLocked}">
-    <Header></Header>
+    <Header v-if="this.$route.path !== '/chat'"></Header>
     <div class="content">
       <router-view/>
     </div>
@@ -19,6 +19,9 @@ export default {
     return {
       globalData
     }
+  },
+  mounted: function () {
+    console.log(this.$route.path)
   }
 }
 </script>
